@@ -1,4 +1,5 @@
-:root {
+ /* Estilos CSS atualizados para layout completo e responsivo */
+        :root {
             --scratch-red: #FF6619;
             --scratch-orange: #FF8C1A;
             --scratch-yellow: #FFDE40;
@@ -85,6 +86,11 @@
             line-height: 1;
             padding: 0;
             margin: 0;
+            transition: transform 0.3s ease;
+        }
+
+        .mic-toggle:hover {
+            transform: scale(1.1);
         }
         
         .chat-main {
@@ -102,12 +108,19 @@
             display: flex;
             flex-direction: column;
             gap: 15px;
+            scroll-behavior: smooth;
         }
         
         .chat-message {
             display: flex;
             align-items: flex-end;
             max-width: 90%;
+            animation: fadeIn 0.3s ease;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
         }
         
         .bot-message {
@@ -159,6 +172,12 @@
             border-radius: 15px;
             border: 2px solid var(--scratch-yellow);
             box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+            animation: scaleIn 0.4s ease;
+        }
+
+        @keyframes scaleIn {
+            from { opacity: 0; transform: scale(0.9); }
+            to { opacity: 1; transform: scale(1); }
         }
         
         .gif-container img, .materiais-container img {
@@ -211,6 +230,11 @@
             transform: translateY(-2px);
             box-shadow: 0 5px 12px rgba(0,0,0,0.2);
         }
+
+        .option-btn:active, .action-btn:active {
+            transform: translateY(0);
+            box-shadow: 0 2px 5px rgba(0,0,0,0.15);
+        }
         
         .input-container {
             padding: 15px 20px;
@@ -254,6 +278,11 @@
             transform: translateY(-2px);
             box-shadow: 0 5px 12px rgba(0,0,0,0.2);
         }
+
+        .input-container button:active {
+            transform: translateY(0);
+            box-shadow: 0 2px 5px rgba(0,0,0,0.15);
+        }
         
         .voice-btn {
             background-color: var(--scratch-red);
@@ -268,11 +297,27 @@
             transition: all 0.3s ease;
             box-shadow: 0 3px 8px rgba(0,0,0,0.15);
             font-size: 1.8rem;
+            position: relative;
+        }
+
+        .voice-btn::after {
+            content: '';
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            border-radius: 50%;
+            background-color: rgba(255, 102, 25, 0.4);
+            animation: pulse 2s infinite;
+            z-index: -1;
         }
         
         .voice-btn.listening {
             animation: pulse 1.5s infinite;
             background-color: var(--scratch-purple);
+        }
+
+        .voice-btn.listening::after {
+            display: none;
         }
         
         @keyframes pulse {
@@ -337,6 +382,11 @@
             background-color: var(--scratch-purple);
             transform: translateY(-3px);
             box-shadow: 0 6px 15px rgba(0,0,0,0.3);
+        }
+
+        .start-btn:active {
+            transform: translateY(0);
+            box-shadow: 0 4px 10px rgba(0,0,0,0.2);
         }
         
         .ficha-selection {
@@ -530,6 +580,73 @@
             display: none;
             z-index: 1000;
         }
+
+        .pause-speech-btn {
+            position: fixed;
+            bottom: 130px;
+            right: 20px;
+            background: rgba(0,0,0,0.7);
+            color: white;
+            border: none;
+            border-radius: 50%;
+            width: 40px;
+            height: 40px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            z-index: 1000;
+            font-size: 1.2rem;
+            transition: background 0.3s;
+        }
+
+        .pause-speech-btn:hover {
+            background: rgba(0,0,0,0.9);
+        }
+
+        .accessibility-panel {
+            position: fixed;
+            top: 80px;
+            right: 20px;
+            background: white;
+            border-radius: 10px;
+            padding: 15px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.15);
+            z-index: 1000;
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            min-width: 180px;
+        }
+
+        .accessibility-option {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .accessibility-option input {
+            margin: 0;
+        }
+
+        .accessibility-toggle {
+            position: fixed;
+            top: 85px;
+            right: 20px;
+            background: var(--scratch-blue);
+            color: white;
+            border: none;
+            border-radius: 50%;
+            width: 40px;
+            height: 40px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            z-index: 1001;
+            font-size: 1.2rem;
+            box-shadow: 0 3px 8px rgba(0,0,0,0.2);
+        }
         
         /* Melhorias para desktop */
         @media (min-width: 1024px) {
@@ -683,4 +800,56 @@
                 bottom: 80px;
                 right: 10px;
             }
+
+            .pause-speech-btn {
+                bottom: 120px;
+                right: 10px;
+            }
+
+            .accessibility-toggle, .accessibility-panel {
+                top: 65px;
+                right: 10px;
+            }
+        }
+
+        /* High contrast mode */
+        .high-contrast {
+            --scratch-light: #000;
+            --scratch-dark: #fff;
+        }
+
+        .high-contrast .app-container {
+            background-color: #000;
+            color: #fff;
+        }
+
+        .high-contrast .chat-container {
+            background-color: #222;
+        }
+
+        .high-contrast .message-content {
+            background-color: #333;
+            color: #fff;
+        }
+
+        .high-contrast .bot-message .message-content {
+            border-color: #ff0;
+        }
+
+        .high-contrast .input-container {
+            background-color: #000;
+            border-top-color: #333;
+        }
+
+        .high-contrast .input-container input {
+            background-color: #333;
+            color: #fff;
+            border-color: #ff0;
+        }
+
+        /* Reduced motion mode */
+        .reduced-motion * {
+            animation-duration: 0.01ms !important;
+            animation-iteration-count: 1 !important;
+            transition-duration: 0.01ms !important;
         }

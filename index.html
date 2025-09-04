@@ -6,6 +6,7 @@
     <title>Bloquito-Fichas - Assistente de Robótica</title>
     <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@400;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
+    
 </head>
 <body>
     <div class="app-container">
@@ -16,9 +17,30 @@
             </div>
             <div class="mic-status">
                 <span>Microfone: Inativo</span>
-                <button class="mic-toggle" id="micToggle" title="Ativar/Desativar Microfone">🔵</button>
+                <button class="mic-toggle" id="micToggle" title="Ativar/Desativar Microfone" aria-label="Ativar ou desativar microfone">🔵</button>
             </div>
         </header>
+        
+        <button class="accessibility-toggle" id="accessibilityToggle" aria-label="Opções de acessibilidade">
+  &#9776; <!-- ícone de três riscos (hambúrguer) -->
+</button>
+
+        
+        <div id="accessibilityPanel" class="accessibility-panel hidden">
+            <h3 style="margin-bottom: 10px; font-size: 1rem;">Opções de Acessibilidade</h3>
+            <div class="accessibility-option">
+                <input type="checkbox" id="highContrastToggle">
+                <label for="highContrastToggle">Alto Contraste</label>
+            </div>
+            <div class="accessibility-option">
+                <input type="checkbox" id="reducedMotionToggle">
+                <label for="reducedMotionToggle">Reduzir Animação</label>
+            </div>
+            <div class="accessibility-option">
+                <input type="checkbox" id="largerTextToggle">
+                <label for="largerTextToggle">Texto Maior</label>
+            </div>
+        </div>
         
         <div id="listeningIndicator" class="listening-indicator" style="display: none;">
             Ouvindo... Fale agora
@@ -31,16 +53,18 @@
         </div>
         
         <div class="input-container">
-            <button class="voice-btn" id="voiceBtn" title="Gravar Áudio">🎤</button>
-            <input type="text" id="userInput" placeholder="Digite sua resposta...">
-            <button id="sendBtn" title="Enviar Mensagem">Enviar</button>
+            <button class="voice-btn" id="voiceBtn" title="Gravar Áudio" aria-label="Iniciar gravação de voz">🎤</button>
+            <input type="text" id="userInput" placeholder="Digite sua resposta..." aria-label="Digite sua resposta">
+            <button id="sendBtn" title="Enviar Mensagem" aria-label="Enviar mensagem">Enviar</button>
         </div>
     </div>
+
+    <button class="pause-speech-btn hidden" id="pauseSpeechBtn" title="Pausar Fala" aria-label="Pausar fala">⏸️</button>
 
     <div id="speechQueueInfo" class="speech-queue-info">
         Fila de fala: <span id="queueCount">0</span>
     </div>
 
-   <script src="script.js"></script>
+    <script src="script.js"></script>
 </body>
 </html>

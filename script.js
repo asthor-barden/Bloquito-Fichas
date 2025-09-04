@@ -1,4 +1,4 @@
-// Dados das fichas e atividades
+  // Dados das fichas e atividades
         const fichas = {
             fichaNatal: {
                 titulo: "CENÁRIO NATALINO: CRIE SUA ÁRVORE INTERATIVA",
@@ -188,7 +188,7 @@
             fichaCampainhaMusical: {
                 titulo: "MINHA CAMPAINHA PERSONALIZADA: SONS E MENSAGENS",
                 tituloVoz: "Minha Campainha Personalizada, Sons e Mensagens",
-                descricao: "Crie uma campainha musical com mensagens gravadas, aprendendo sobre gravação e reprodução de sons com o kit Bloco+.",
+                descricao: "Crie uma campainha musical com mensagens gravadas, aprendendo sobre gravação e reprodução de sounds com o kit Bloco+.",
                 materiais: [
                     "Kit Bloco+",
                     "Módulo Bloco+ Chipcorder",
@@ -209,8 +209,8 @@
                         gif: "https://via.placeholder.com/400x300?text=Passo+2+Separar+Botao"
                     },
                     {
-                        instrucao: "Crie um cenário em papelão, como a fachada de uma casa ou a entrada de uma loja, e integre o circuito da campainha neste cenário para torná-lo mais realista.",
-                        instrucaoVoz: "Crie um cenário em papelão, como a fachada de uma casa ou a entrada de uma loja, e integre o circuito da campainha neste cenário para torná-lo mais realista.",
+                        instrucao: "Crie um cenário em papelão, como la fachada de uma casa ou a entrada de uma loja, e integre o circuito da campainha neste cenário para torná-lo mais realista.",
+                        instrucaoVoz: "Crie um cenário em papelão, como la fachada de uma casa ou a entrada de uma loja, e integre o circuito da campainha neste cenário para torná-lo mais realista.",
                         gif: "https://via.placeholder.com/400x300?text=Passo+3+Cenario+Campainha"
                     },
                     {
@@ -241,6 +241,7 @@
         let currentScreen = "welcome"; // Tela atual: welcome, fichaSelection, ficha, completion
         let doubtCounter = 0; // Contador para ajuda do professor
         let isAutoListening = false; // Controle para escuta automática
+        let isSpeechPaused = false; // Controle para pausar a fala
         
         // Elementos da DOM
         const chatContainer = document.getElementById('chatContainer');
@@ -251,6 +252,12 @@
         const listeningIndicator = document.getElementById('listeningIndicator');
         const speechQueueInfo = document.getElementById('speechQueueInfo');
         const queueCount = document.getElementById('queueCount');
+        const pauseSpeechBtn = document.getElementById('pauseSpeechBtn');
+        const accessibilityToggle = document.getElementById('accessibilityToggle');
+        const accessibilityPanel = document.getElementById('accessibilityPanel');
+        const highContrastToggle = document.getElementById('highContrastToggle');
+        const reducedMotionToggle = document.getElementById('reducedMotionToggle');
+        const largerTextToggle = document.getElementById('largerTextToggle');
         
         // Inicializar a síntese de voz
         const synth = window.speechSynthesis;
@@ -335,6 +342,26 @@
         micToggle.addEventListener('click', () => {
             toggleMic(!isMicActive);
         });
+
+        pauseSpeechBtn.addEventListener('click', () => {
+            toggleSpeechPause();
+        });
+
+        accessibilityToggle.addEventListener('click', () => {
+            accessibilityPanel.classList.toggle('hidden');
+        });
+
+        highContrastToggle.addEventListener('change', () => {
+            document.body.classList.toggle('high-contrast', highContrastToggle.checked);
+        });
+
+        reducedMotionToggle.addEventListener('change', () => {
+            document.body.classList.toggle('reduced-motion', reducedMotionToggle.checked);
+        });
+
+        largerTextToggle.addEventListener('change', () => {
+            document.body.classList.toggle('larger-text', largerTextToggle.checked);
+        });
         
         // Delegação de eventos para elementos dinâmicos
         document.addEventListener('click', function(e) {
@@ -392,17 +419,36 @@
             if (isMicActive) {
                 micToggle.textContent = '🔴';
                 micToggle.parentElement.querySelector('span').textContent = 'Microfone: Ativo';
+                micToggle.setAttribute('aria-label', 'Desativar microfone');
                 if (recognition) {
                     recognition.start();
                 }
             } else {
                 micToggle.textContent = '🔵';
                 micToggle.parentElement.querySelector('span').textContent = 'Microfone: Inativo';
+                micToggle.setAttribute('aria-label', 'Ativar microfone');
                 if (recognition) {
                     recognition.stop();
                     listeningIndicator.style.display = 'none';
                     voiceBtn.classList.remove('listening');
                 }
+            }
+        }
+
+        // Função para pausar/retomar a fala
+        function toggleSpeechPause() {
+            isSpeechPaused = !isSpeechPaused;
+            
+            if (isSpeechPaused) {
+                synth.pause();
+                pauseSpeechBtn.textContent = '▶️';
+                pauseSpeechBtn.setAttribute('aria-label', 'Retomar fala');
+                pauseSpeechBtn.title = 'Retomar Fala';
+            } else {
+                synth.resume();
+                pauseSpeechBtn.textContent = '⏸️';
+                pauseSpeechBtn.setAttribute('aria-label', 'Pausar fala');
+                pauseSpeechBtn.title = 'Pausar Fala';
             }
         }
         
@@ -426,7 +472,7 @@
         
         // Função para processar a fila de fala
         function processSpeechQueue() {
-            if (speechQueue.length === 0) {
+            if (speechQueue.length === 0 || isSpeechPaused) {
                 isProcessingQueue = false;
                 return;
             }
@@ -450,8 +496,10 @@
             queueCount.textContent = speechQueue.length;
             if (speechQueue.length > 0) {
                 speechQueueInfo.style.display = 'block';
+                pauseSpeechBtn.classList.remove('hidden');
             } else {
                 speechQueueInfo.style.display = 'none';
+                pauseSpeechBtn.classList.add('hidden');
             }
         }
         
@@ -567,7 +615,7 @@
                 <div class="welcome-screen">
                     <h2>Bem-vindo ao Bloquito-Fichas!</h2>
                     <p>Seu assistente interativo para atividades de robótica educacional. Vamos aprender juntos?</p>
-                    <input type="text" class="name-input" id="nameInput" placeholder="Como você se chama?">
+                    <input type="text" class="name-input" id="nameInput" placeholder="Como você se chama?" aria-label="Digite seu nome">
                     <button class="start-btn" id="startBtn">Começar</button>
                 </div>
             `;
@@ -585,7 +633,7 @@
             const fichaSelectionHTML = `
                 <div class="ficha-selection">
                     ${Object.keys(fichas).map((key) => `
-                        <div class="ficha-card" data-ficha="${key}">
+                        <div class="ficha-card" data-ficha="${key}" aria-label="${fichas[key].titulo} - ${fichas[key].descricao}">
                             <img src="https://via.placeholder.com/300x160?text=${encodeURIComponent(fichas[key].titulo.replace(':', '').replace('?', '').replace('!', ''))}" alt="${fichas[key].titulo}">
                             <div class="ficha-card-content">
                                 <h3>${fichas[key].titulo}</h3>
@@ -640,9 +688,9 @@
                 
                 const optionsHTML = `
                     <div class="options-container">
-                        <button class="option-btn" data-response="sim">Sim, já separei</button>
-                        <button class="option-btn" data-response="não">Não, preciso de mais tempo</button>
-                        <button class="option-btn" data-response="repetir">Repetir os materiais</button>
+                        <button class="option-btn" data-response="sim" aria-label="Sim, já separei os materiais">Sim, já separei</button>
+                        <button class="option-btn" data-response="não" aria-label="Não, preciso de mais tempo">Não, preciso de mais tempo</button>
+                        <button class="option-btn" data-response="repetir" aria-label="Repetir a lista de materiais">Repetir os materiais</button>
                     </div>
                 `;
                 
@@ -851,9 +899,9 @@
             
             const optionsHTML = `
                 <div class="options-container">
-                    <button class="option-btn" data-response="sim">Sim, concluí!</button>
-                    <button class="option-btn" data-response="não">Não, tenho dúvida</button>
-                    <button class="option-btn" data-response="repetir">Repetir instrução</button>
+                    <button class="option-btn" data-response="sim" aria-label="Sim, concluí este passo">Sim, concluí!</button>
+                    <button class="option-btn" data-response="não" aria-label="Não, tenho dúvida sobre este passo">Não, tenho dúvida</button>
+                    <button class="option-btn" data-response="repetir" aria-label="Repetir esta instrução">Repetir instrução</button>
                 </div>
             `;
             
