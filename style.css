@@ -815,12 +815,12 @@
         /* High contrast mode */
         .high-contrast {
             --scratch-light: #000;
-            --scratch-dark: #fff;
+            --scratch-dark: #7c7c7c;
         }
 
         .high-contrast .app-container {
             background-color: #000;
-            color: #fff;
+            color: #000000;
         }
 
         .high-contrast .chat-container {
@@ -852,4 +852,7 @@
             animation-duration: 0.01ms !important;
             animation-iteration-count: 1 !important;
             transition-duration: 0.01ms !important;
+        }
+        .larger-text {
+            font-size: 1.2rem ;
         }

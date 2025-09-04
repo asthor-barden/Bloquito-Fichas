@@ -1,28 +1,34 @@
   // Dados das fichas e atividades
         const fichas = {
             fichaNatal: {
-                titulo: "CENÁRIO NATALINO: CRIE SUA ÁRVORE INTERATIVA",
-                tituloVoz: "Cenário Natalino, Crie Sua Árvore Interativa",
+                titulo: "BOAS FESTAS: MONTAR UM CENÁRIO NATALINO",
+                tituloVoz: "Boas festas, monte um cenário natalino",
                 descricao: "Monte um cenário de Natal interativo que reproduz mensagens e músicas natalinas, explorando datas comemorativas e a utilização de módulos eletrônicos Bloco+.",
                 materiais: [
                     "Kit Bloco+",
                     "Módulo Bloco+ PIC",
                     "Módulo Bloco+ Chipcorder",
+                    "Módulo Bloco+ Amplificador",
+                    "Módulo Bloco+ Speaker",
+                    "Módulo Bloco+ Potenciômetro",
+                    "Módulo Bloco+ Capacitor E",
                     "Módulo Bloco+ Power",
+                    "Módulo Bloco+ Connection Vermelho",
+                    "Módulo Bloco+ Connection Preto",
                     "Pedaço de papelão",
                     "Tinta verde"
                 ],
-                imagemMateriais: "https://via.placeholder.com/600x350?text=Materiais+Cenario+Natalino",
+                imagemMateriais: "ficha1/BLOCOS-BOAS-FESTAS.gif",
                 passosMontagem: [
                     {
-                        instrucao: "Corte dois pedaços triangulares de papelão para a árvore de Natal. Faça um corte na ponta de um e na base do outro para que se encaixem, conforme a Figura 1 do material.",
-                        instrucaoVoz: "Corte dois pedaços triangulares de papelão para a árvore de Natal. Faça um corte na ponta de um e na base do outro para que se encaixem, conforme a Figura um do material.",
-                        gif: "https://via.placeholder.com/400x300?text=Passo+1+Arvore+Natal"
+                        instrucao: "Corte dois pedaços triangulares de papelão para a árvore de Natal. Faça um corte na ponta de um e na base do outro para que se encaixem, conforme a animação.",
+                        instrucaoVoz: "Corte dois pedaços triangulares de papelão para a árvore de Natal. Faça um corte na ponta de um e na base do outro para que se encaixem, conforme a animação.",
+                        gif: "ficha1/ARVORE-BOAS-FESTAS.gif"
                     },
                     {
                         instrucao: "Faça furos de aproximadamente 8 cm de diâmetro no papelão para pendurar os blocos do kit como enfeites na árvore.",
                         instrucaoVoz: "Faça furos de aproximadamente oito centímetros de diámetro no papelão para pendurar os blocos do kit como enfeites na árvore.",
-                        gif: "https://via.placeholder.com/400x300?text=Passo+2+Furos+Enfeites"
+                        gif: "ficha1/ARVORE1-BOAS-FESTAS.gif"
                     },
                     {
                         instrucao: "Pinte o papelão de verde para simular o pinheiro. Após secar, encaixe as partes para que a árvore fique em pé.",
@@ -566,10 +572,15 @@
                 if (normalized.includes(tituloNormalized) || 
                     normalized.includes(tituloVozNormalized) ||
                     normalized.includes(key.toLowerCase()) ||
+                    
                     (key === "fichaNatal" && (normalized.includes("natal") || normalized.includes("cenário") || normalized.includes("arvore"))) ||
+                    
                     (key === "fichaErrosEletricos" && (normalized.includes("erro") || normalized.includes("elétrico") || normalized.includes("detetive") || normalized.includes("circuitos"))) ||
+                    
                     (key === "fichaAlarmeIncendio" && (normalized.includes("alarme") || normalized.includes("incêndio") || normalized.includes("vermelho"))) ||
+
                     (key === "fichaAnaliseAgua" && (normalized.includes("água") || normalized.includes("pureza") || normalized.includes("cientista") || normalized.includes("condutividade"))) ||
+                    
                     (key === "fichaCampainhaMusical" && (normalized.includes("campainha") || normalized.includes("música") || normalized.includes("personalizada")))
                 ) {
                     return key;
@@ -628,7 +639,7 @@
             currentScreen = "fichaSelection";
             chatContainer.innerHTML = '';
             
-            addChatMessage("Bloquito-Fichas", `Olá ${userName}! Escolha uma das fichas abaixo para começarmos nossa aventura:`, 'bot');
+            addChatMessage("Bloquito-Fichas", `${userName}! Escolha uma das fichas abaixo para começarmos nossa aventura:`, 'bot');
             
             const fichaSelectionHTML = `
                 <div class="ficha-selection">
@@ -649,7 +660,7 @@
             
             chatContainer.innerHTML += fichaSelectionHTML;
             
-            addToSpeechQueue(`Olá ${userName}! Escolha uma das fichas para começar. Você pode clicar na ficha que desejar ou dizer "Ficha um", "Ficha dois" ou o nome da ficha.`, true);
+            addToSpeechQueue(`${userName}! Escolha uma das fichas para começar. Você pode clicar na ficha que desejar ou dizer "Ficha um", "Ficha dois" ou o nome da ficha.`, true);
             chatContainer.scrollTop = chatContainer.scrollHeight;
             
             // Ativar escuta automática para seleção de ficha
