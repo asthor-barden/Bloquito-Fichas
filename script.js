@@ -33,7 +33,7 @@
                     {
                         instrucao: "Pinte o papelão de verde para simular o pinheiro. Após secar, encaixe as partes para que a árvore fique em pé.",
                         instrucaoVoz: "Pinte o papelão de verde para simular o pinheiro. Após secar, encaixe as partes para que a árvore fique em pé.",
-                        gif: "https://via.placeholder.com/400x300?text=Passo+3+Pintar+e+Encaixar"
+                        gif: "ficha1/MONTAGEM-ARVORE-BOAS-FESTAS.gif"
                     },
                     {
                         instrucao: "Monte o circuito utilizando os módules Bloco+ Power, Bloco+ Chipcorder e Bloco+ PIC, conectando-os conforme a Figura 2 do material.",
