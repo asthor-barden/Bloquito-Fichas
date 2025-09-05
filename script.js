@@ -573,7 +573,7 @@
                     normalized.includes(tituloVozNormalized) ||
                     normalized.includes(key.toLowerCase()) ||
                     
-                    (key === "fichaNatal" && (normalized.includes("natal") || normalized.includes("cenário") || normalized.includes("arvore"))) ||
+                    (key === "boas festas" && (normalized.includes("festas") || normalized.includes("natal") || normalized.includes("arvore"))) ||
                     
                     (key === "fichaErrosEletricos" && (normalized.includes("erro") || normalized.includes("elétrico") || normalized.includes("detetive") || normalized.includes("circuitos"))) ||
                     
