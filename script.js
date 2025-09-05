@@ -51,9 +51,14 @@
                         gif: "ficha1/MONTAGEM-CIRCUITO-PASSO3-BOAS-FESTAS.gif"
                     },
                     {
-                        instrucao: "Com o circuito ligado, use o módulo Bloco+ Chipcorder para gravar uma mensagem de Natal (máximo 10 segundos), por exemplo: 'HO! HO! HO! Feliz Natal para todos!'. Mantenha o botão 'REC' pressionado enquanto fala e solte ao terminar.",
-                        instrucaoVoz: "Com o circuito ligado, use o módulo Bloco Mais Chipcorder para gravar uma mensagem de Natal, máximo dez segundos, por exemplo: 'HO HO HO Feliz Natal para todos!'. Mantenha o botão 'REC' pressionado enquanto fala e solte ao terminar.",
-                        gif: "https://via.placeholder.com/400x300?text=Passo+6+Gravar+Mensagem"
+                        instrucao: "Agora que o Speaker esta conectado ao amplificador, vamos ligar o amplificador ao Chipcorder. Conecte o borne de entrada (-) do Bloco+ Amplificador ao borne negativo (-) do Bloco+ Chipcorder. Depois conecte um cabo duplo ao borne de entrada (+) do Bloco+ Amplificador ao borne de saída (OUT) do Bloco+ Chipcorder e ao borne preto no capacitor 30 uF do Bloco+ Capaciotor E.",
+                        instrucaoVoz: "Agora que o Speaker está conectado ao amplificador, vamos ligar o amplificador ao Chipcorder. Conecte o borne de entrada menos do Bloco Mais Amplificador ao borne negativo menos do Bloco Mais Chipcorder. Depois conecte um cabo duplo ao borne de entrada mais do Bloco Mais Amplificador ao borne de saída out do Bloco Mais Chipcorder e ao borne preto no capacitor trinta microfarads do Bloco Mais Capacitor E.",
+                        gif: "ficha1/MONTAGEM-CIRCUITO-PASSO4-BOAS-FESTAS.gif"
+                    },
+                    {
+                        instrucao: "Agora que o Speaker esta conectado ao amplificador, vamos ligar o amplificador ao Chipcorder. Conecte o borne de entrada (-) do Bloco+ Amplificador ao borne negativo (-) do Bloco+ Chipcorder. Depois conecte um cabo duplo ao borne de entrada (+) do Bloco+ Amplificador ao borne de saída (OUT) do Bloco+ Chipcorder e ao borne preto no capacitor 30 uF do Bloco+ Capaciotor E.",
+                        instrucaoVoz: "Agora que o Speaker está conectado ao amplificador, vamos ligar o amplificador ao Chipcorder. Conecte o borne de entrada menos do Bloco Mais Amplificador ao borne negativo menos do Bloco Mais Chipcorder. Depois conecte um cabo duplo ao borne de entrada mais do Bloco Mais Amplificador ao borne de saída out do Bloco Mais Chipcorder e ao borne preto no capacitor trinta microfarads do Bloco Mais Capacitor E.",
+                        gif: "ficha1/MONTAGEM-CIRCUITO-PASSO4-BOAS-FESTAS.gif"
                     }
                 ],
                 
