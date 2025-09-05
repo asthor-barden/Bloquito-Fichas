@@ -35,15 +35,20 @@
                         instrucaoVoz: "Pinte o papelão de verde para simular o pinheiro. Após secar, encaixe as partes para que a árvore fique em pé.",
                         gif: "ficha1/MONTAGEM-ARVORE-BOAS-FESTAS.gif"
                     },
-                    {
+                    {//Circuito parte 1
                         instrucao: "Vamos começar a montagem do circuito. Conecte quatro cabos aos bornes do Bloco+ Connection Vermelho. Conecte o primeiro cabo no borne porsitivo (+) do Bloco+ Power, o segundo no borne positivo (+) do Bloco+ PIC, o terceiro no borne positivo (+) do Bloco+ Chipcorder e o quarto no borne positivo (+) do Bloco+ Amplificador.",
                         instrucaoVoz: "Vamos começar a montagem do circuito. Conecte quatro cabos aos bornes do Bloco Mais Connection Vermelho. Conecte o primeiro cabo no borne positivo mais do Bloco Mais Power, o segundo no borne positivo mais do Bloco Mais PIC, o terceiro no borne positivo mais do Bloco Mais Chipcorder e o quarto no borne positivo mais do Bloco Mais Amplificador.",
                         gif: "ficha1/MONTAGEM-CIRCUITO-PASSO1-BOAS-FESTAS.gif"
                     },
-                    {
-                        instrucao: "Teste o funcionamento do circuito apertando a tecla 'ON' no módulo Bloco+ Power para ligá-lo.",
-                        instrucaoVoz: "Teste o funcionamento do circuito apertando a tecla 'ON' no módulo Bloco Mais Power para ligá-lo.",
-                        gif: "https://via.placeholder.com/400x300?text=Passo+5+Testar+Power"
+                    {//Circuito parte 2
+                        instrucao: "Agora, conecte cinco cabos aos bornes do Bloco+ Connection Preto. Conecte o primeiro cabo no borne negativo (-) do Bloco+ Power, o segundo no borne negativo (-) do Bloco+ Amplificador, o terceiro no borne negativo (-) do Bloco+ PIC, o quarto no borne negativo (-) do Bloco+ Chipcorder e o quinto no borne negativo (-) do Bloco+ Potenciômetro.",
+                        instrucaoVoz: "Agora, conecte cinco cabos aos bornes do Bloco Mais Connection Preto. Conecte o primeiro cabo no borne negativo menos do Bloco Mais Power, o segundo no borne negativo menos do Bloco Mais Amplificador, o terceiro no borne negativo menos do Bloco Mais PIC, o quarto no borne negativo menos do Bloco Mais Chipcorder e o quinto no borne negativo menos do Bloco Mais Potenciômetro.",
+                        gif: "ficha1/MONTAGEM-CIRCUITO-PASSO2-BOAS-FESTAS.gif"
+                    },
+                    {//Circuito parte 3
+                        instrucao: "Com o circuito ligado, use o módulo Bloco+ Chipcorder para gravar uma mensagem de Natal (máximo 10 segundos), por exemplo: 'HO! HO! HO! Feliz Natal para todos!'. Mantenha o botão 'REC' pressionado enquanto fala e solte ao terminar.",
+                        instrucaoVoz: "Com o circuito ligado, use o módulo Bloco Mais Chipcorder para gravar uma mensagem de Natal, máximo dez segundos, por exemplo: 'HO HO HO Feliz Natal para todos!'. Mantenha o botão 'REC' pressionado enquanto fala e solte ao terminar.",
+                        gif: "https://via.placeholder.com/400x300?text=Passo+6+Gravar+Mensagem"
                     },
                     {
                         instrucao: "Com o circuito ligado, use o módulo Bloco+ Chipcorder para gravar uma mensagem de Natal (máximo 10 segundos), por exemplo: 'HO! HO! HO! Feliz Natal para todos!'. Mantenha o botão 'REC' pressionado enquanto fala e solte ao terminar.",
@@ -51,6 +56,7 @@
                         gif: "https://via.placeholder.com/400x300?text=Passo+6+Gravar+Mensagem"
                     }
                 ],
+                
                 passosCodigo: [
                     {
                         instrucao: "Utilizando o módulo Bloco+ PIC, selecione o programa 3. Para isso, aperte a tecla 'Program' três vezes. Este programa é o 'cérebro' do circuito e irá acionar a gravação e uma música natalina.",
