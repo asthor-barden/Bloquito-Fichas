@@ -36,9 +36,9 @@
                         gif: "ficha1/MONTAGEM-ARVORE-BOAS-FESTAS.gif"
                     },
                     {
-                        instrucao: "Monte o circuito utilizando os módules Bloco+ Power, Bloco+ Chipcorder e Bloco+ PIC, conectando-os conforme a Figura 2 do material.",
-                        instrucaoVoz: "Monte o circuito utilizando os módulos Bloco Mais Power, Bloco Mais Chipcorder e Bloco Mais PIC, conectando-os conforme a Figura dois do material.",
-                        gif: "https://via.placeholder.com/400x300?text=Passo+4+Montagem+Circuito+Natal"
+                        instrucao: "Vamos começar a montagem do circuito. Conecte quatro cabos aos bornes do Bloco+ Connection Vermelho. Conecte o primeiro cabo no borne porsitivo (+) do Bloco+ Power, o segundo no borne positivo (+) do Bloco+ PIC, o terceiro no borne positivo (+) do Bloco+ Chipcorder e o quarto no borne positivo (+) do Bloco+ Amplificador.",
+                        instrucaoVoz: "Vamos começar a montagem do circuito. Conecte quatro cabos aos bornes do Bloco Mais Connection Vermelho. Conecte o primeiro cabo no borne positivo mais do Bloco Mais Power, o segundo no borne positivo mais do Bloco Mais PIC, o terceiro no borne positivo mais do Bloco Mais Chipcorder e o quarto no borne positivo mais do Bloco Mais Amplificador.",
+                        gif: "ficha1/MONTAGEM-CIRCUITO-PASSO1-BOAS-FESTAS.gif"
                     },
                     {
                         instrucao: "Teste o funcionamento do circuito apertando a tecla 'ON' no módulo Bloco+ Power para ligá-lo.",
@@ -654,7 +654,7 @@
                     `).join('')}
                 </div>
                 <div class="options-container" style="padding: 0 20px 20px;">
-                    <p style="font-size: 1rem; color: var(--scratch-dark); opacity: 0.8;">Você também pode dizer, por exemplo: "Ficha 1", "Campainha Musical" ou "Alarme de Incêndio".</p>
+                    <p style="font-size: 1rem; color: var(--scratch-dark); opacity: 0.8;">Você também pode dizer, por exemplo: "Ficha 1", "Campainha Musical" ou "Boas Festas".</p>
                 </div>
             `;
             
