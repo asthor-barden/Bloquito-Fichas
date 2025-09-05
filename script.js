@@ -46,9 +46,9 @@
                         gif: "ficha1/MONTAGEM-CIRCUITO-PASSO2-BOAS-FESTAS.gif"
                     },
                     {//Circuito parte 3
-                        instrucao: "Com o circuito ligado, use o módulo Bloco+ Chipcorder para gravar uma mensagem de Natal (máximo 10 segundos), por exemplo: 'HO! HO! HO! Feliz Natal para todos!'. Mantenha o botão 'REC' pressionado enquanto fala e solte ao terminar.",
-                        instrucaoVoz: "Com o circuito ligado, use o módulo Bloco Mais Chipcorder para gravar uma mensagem de Natal, máximo dez segundos, por exemplo: 'HO HO HO Feliz Natal para todos!'. Mantenha o botão 'REC' pressionado enquanto fala e solte ao terminar.",
-                        gif: "https://via.placeholder.com/400x300?text=Passo+6+Gravar+Mensagem"
+                        instrucao: "Vamos ligar o Bloco+ Speaker ao Bloco+ Amplificador. Conecte o borne amarelo do Speaker ao borde de saida (+) do amplificador e o borne azul do speaker ao borne de saida (-) do amplificador.",
+                        instrucaoVoz: "Vamos ligar o Bloco Mais Speaker ao Bloco Mais Amplificador. Conecte o borne amarelo do Speaker ao borde de saída mais do amplificador e o borne azul do speaker ao borne de saída menos do amplificador.",
+                        gif: "ficha1/MONTAGEM-CIRCUITO-PASSO3-BOAS-FESTAS.gif"
                     },
                     {
                         instrucao: "Com o circuito ligado, use o módulo Bloco+ Chipcorder para gravar uma mensagem de Natal (máximo 10 segundos), por exemplo: 'HO! HO! HO! Feliz Natal para todos!'. Mantenha o botão 'REC' pressionado enquanto fala e solte ao terminar.",
